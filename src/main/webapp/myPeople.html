@@ -1,0 +1,132 @@
+<style>body{background-image: url('https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')}</style>
+<div class="card mt-3">
+	<div class="card-header" style="background-color: #1460A5">
+		<table width=100%>
+		<tr>
+		<td width=50%>
+		<h4 style="color: lightgrey">Your People</h4>
+		</td>
+		<td align=right>
+		<button class="btn" data-toggle="modal" data-target="#myModal" style="background-color: #BFBFBF">Add Person</button>
+		</td>
+		</tr>
+		</table>
+		
+		
+		<!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog" style="width:75%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Person</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped">
+                            <form  (ngSubmit) = "OnClickSubmit(addnew.value)">
+                            <tbody>
+                                <tr>
+                                    <th>First Name</th>
+                                    <td><input type="text" name="Fname" id="Fname"></td>
+                                </tr>
+                                
+                                <tr>
+									<th>Last Name</th>
+									 <td><input type="text" name="Lname" id="Lname"></td>
+								</tr>
+                                <tr>
+									<th>Relationship</th>
+									 <td><select name="Rinput" id="Rinput"><option value="-1" disabled>--select relation--</option><option value="">NONE</option><option ng-repeat="relation in relations" value="{{relation.relationId}}">{{relation.relation}}</option></select> </td>
+								</tr>
+                                <tr>
+									<th>Party Location</th>
+									 <td><select name="PLinput" id="PLinput"><option value="-1" disabled>--select relation--</option><option value="">NONE</option><option ng-repeat="party in parties" value="{{party.partyId}}">{{party.partyLocation}}</option></select> </td>
+								</tr>
+
+                            </tbody>
+                        </table>
+                        <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" value="submit" ng-click="addPerson()" data-dismiss="modal">Add</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+	
+	
+	</div>
+	<div class="card-body">
+		<table class="table table-hover" >
+			<thead class="thead-light">
+				<tr>
+					<th>View Gifts</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Relationship</th>
+					<th>Party Location</th>
+					<th>Gifts</th>
+					<th>Days Till Party</th>
+					<th></th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="person in people">
+					<td><button class="btn" data-toggle="modal" data-target="#myModalGIFTS" style="background-color: #BFBFBF" ng-click="personGiftPopUp(person.personId)">View</button></td>
+					<td>{{person.personName}}</td>
+					<td>{{person.personLastName}}</td>
+					<td>{{person.relation}}</td>
+					<td>{{person.partyLocation}}</td>
+					<td>{{person.totalGifts}}</td>
+					<td>{{person.partyDays}}</td>
+					<td><button type="submit" class="btn btn-danger" value="submit" ng-click="deletePerson(person.personId)" style="font-size: 10px"> Remove</button></td>
+					
+					
+				</tr>
+				
+			</tbody>
+		</table>
+		
+		<!-- Modal -->
+        <div class="modal fade" id="myModalGIFTS" role="dialog">
+            <div class="modal-dialog" style="width:75%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Gifts</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <label id="unassignPersonId" hidden></label>
+                    <table class="table table-hover" >
+			<thead class="thead-light">
+				<tr>
+					<th>Gift Name</th>
+					<th>Gift Price</th>
+					<th>Link</th>
+					<th></th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="gift in gifts">
+					<td>{{gift.giftName}}</td>
+					<td>${{gift.price}}</td>
+					<td><a href={{gift.link}}>{{gift.linkType}}</a></td>
+					<td><button type="submit" class="btn btn-danger" value="submit" ng-click="unassignGift(gift.giftId)" style="font-size: 10px"> Unassign</button></td>
+
+					
+					
+				</tr>
+				
+			</tbody>
+		</table>
+                    <div class="modal-body">
+                        <div class="modal-footer">
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+	</div>
+</div>

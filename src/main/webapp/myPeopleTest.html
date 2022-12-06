@@ -1,0 +1,37 @@
+<h1>search view</h1>
+<div class="card mt-3">
+	<div class="card-header bg-info">
+		<h4>Your People</h4>
+		<button class="btn btn-success" ng-click="getPeople()">Get People</button>
+		<button class="btn btn-success" ng-click="getGiftByPeople()">get gifts for People</button>
+	</div>
+	<div class="card-body">
+		<table class="table table-hover">
+			<thead class="thead-light">
+				<tr>
+					<th>Your People</th>
+					<th>Their Gifts</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="person in people" ng-click="goToUpdateView(person.id)">
+					<td>{{person.personName}}</td>
+					<td>
+							<table class="table table-hover">
+								<thead class="thead-light">
+									<tr>
+										<th>personId</th>
+									</tr>
+										<tbody>
+											<tr ng-repeat="person in peopleGifts" ng-click="goToUpdateView(person.id)">
+												<td>{{person.personId}}</td>
+											</tr>
+										</tbody>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="card-footer bg-info">Please select a person for
+		update/delete</div>
+</div>

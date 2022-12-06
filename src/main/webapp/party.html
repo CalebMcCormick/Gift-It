@@ -1,0 +1,103 @@
+<style>body{background-image: url('https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')}</style>
+<div class="card mt-3">
+	<div class="card-header" style="background-color: #1460A5">
+		<table width=100%>
+		<tr>
+		<td width=50%>
+		<h4 style="color: lightgrey">Party</h4>
+		</td>
+		<td align=right>
+		<button class="btn" data-toggle="modal" data-target="#myModal" style="background-color: #BFBFBF">New Party</button>
+		</td>
+		</tr>
+		</table>
+		
+		
+		<!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog" style="width:75%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Person</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped">
+                            <form  (ngSubmit) = "OnClickSubmit(addnew.value)">
+                            <tbody>
+                                <tr>
+                                    <th>Party Location</th>
+                                    <td><input type="text" name="PLocation" id="PLocation"></td>
+                                </tr>
+                                
+                                <tr>
+									<th>Party Date</th>
+									 <td><input type="date" name="PDate" id="PDate"></td>
+								</tr>
+
+                            </tbody>
+                        </table>
+                        <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" value="submit" ng-click="addParty()" data-dismiss="modal">Add</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+	</div>
+	<div class="card-body">
+		<table class="table table-hover">
+			<thead class="thead-light">
+				<tr>
+					<th>Who Will be There?</th>
+					<th>Party Location</th>
+					<th>Party Date</th>
+					<th>Days Until Party</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="party in parties" >
+					<td><button class="btn" data-toggle="modal" data-target="#myModal2" style="background-color: #BFBFBF" value="{{party.partyId}}" ng-click="partyPopUp(party.partyId)">add</button></td>
+					<td>{{party.partyLocation}}</td>
+					<td>{{party.partyDate}}</td>
+					<td>{{party.partyDays}}</td>
+					<td><button type="submit" class="btn btn-danger" value="submit" ng-click="deleteParty(party.partyId)" style="font-size: 10px"> Remove</button></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="modal fade" id="myModal2" role="dialog">
+            <div class="modal-dialog" style="width:75%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Assign Person</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped">
+                            <form  (ngSubmit) = "OnClickSubmit(addnew.value)">
+                            <tbody>
+								<tr>
+									<th>Party Location</th>
+									<td><label Id="PnameAsgn"></label><input Id="PartyIdAssign" hidden></td>
+								</tr>
+								<tr>
+                                    <th>Assign Person</th>
+                                    <td><select name="PSelect" id="PSelect"><option value="-1" disabled>--select person--</option>
+                  					<option value="">NONE</option>
+                  					<option ng-repeat="person in people" value="{{person.personId}}">{{person.personName}}&nbsp;{{person.personLastName}}</option>
+                  					</select></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" value="submit" ng-click="addAsignParty()" data-dismiss="modal">Assign</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>

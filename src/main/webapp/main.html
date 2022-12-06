@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gift-It</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<title>Gift-It</title>
+<style>body{background-image: url('https://images.unsplash.com/photo-1512418490979-92798cec1380?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')}</style>
+</head>
+<body class="bg-info">
+<div class="row">
+	<div class="container-fluid mt-3 mb-3 col-lg-10" >
+		<table width="100%" bgcolor="#ffffff">
+		<tr>
+		
+	<!-- Left Row -->
+		<th class= "rounded" style="background-color: #1460A5">
+			<span class="display-5 font-weight-normal text-white">If you
+				love it, </span><br>
+				<span class="display-4 font-weight-bold text-white">Gift-It!</span>
+		</th>
+		
+		<!-- Middle Row -->
+		<th>
+		<script src="https://cdn.logwork.com/widget/countdown.js"></script>
+<a href="https://logwork.com/countdown-xzht" class="countdown-timer" data-style="circles" data-width="604" data-timezone="America/Chicago" data-textcolor="#000000" data-date="2022-12-25 00:00" data-background="#216104" data-digitscolor="#000000" data-unitscolor="#111211">Christmas is Coming!!</a>
+				<h4 class="text-black">Give the perfect gift for the perfect
+					price</h4><hr>
+					You may be in love with a gift but may
+					not be in love with the price. Gift-It gathers products from all
+					around the wide web to get the perfect price for you and favorite
+					people. We also allow you to see how much your spending allowing
+					you to budget because sometime gifts don't come easy.
+					
+		</th>
+		
+		<!-- Right Row -->
+		
+		
+		
+		
+					</tr>
+					
+					<tr>
+		<td>
+				<img class="img-fluid rounded" 
+					src="https://miro.medium.com/max/1400/1*Qh2XQRh9_4uHiqgN_7MZmA.jpeg">
+				</td>
+				<td><table class="table table-hover">
+			<thead class="thead-light">
+				<tr>
+					<th>Party Location</th>
+					<th>Party Date</th>
+					<th>Days Until Party</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="party in parties" >
+					<td>{{party.partyLocation}}</td>
+					<td>{{party.partyDate}}</td>
+					<td>{{party.partyDays}}</td>
+				</tr>
+			</tbody>
+		</table></td>
+				</tr>
+		</table>
+	</div>
+	<div class="container-fluid mt-3 mb-3 col-lg-2">
+	<h5>Unassigned Gifts</h5>
+		<table class="table table-hover" bgcolor="#ffffff">
+			<thead class="thead-light">
+				<tr>
+					<th>Gift Name</th>
+					<th>Gift Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="gift in gifts" >
+					<td>{{gift.giftName}}</td>
+					<td>${{gift.price}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+</body>
+</html>
